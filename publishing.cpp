@@ -2,9 +2,13 @@
 #include <geometry_msgs/Twist.h>
 #include <stdlib.h>
 
+//angular z is based on unit circle, from 0 to 2pi
+double pi1=3.14159;
+double pi2=pi1/2;
+double pi4=pi1/4;
 int count=0;
-int x[]={1, 2, 2, 3, -8};
-double z[]={1, 2, 3, 4, 5};
+int x[]={2, 2, 2, 2, 2};
+double z[]={0, pi4, pi4, 0, pi2};
 
 int main(int argc, char**argv){
 ros::init(argc, argv, "publish_velocity");
@@ -25,8 +29,8 @@ geometry_msgs::Twist msg;
 msg.linear.x = x[count];
 msg.linear.y=msg.linear.x;
 
-msg.angular.z = 0.0;
-//msg.angular.z = z[count];
+//msg.angular.z = 0.0;
+msg.angular.z = z[count];
 
 count++;
 if(count==5){
@@ -35,8 +39,8 @@ if(count==5){
 
 pub.publish(msg);
 
-ROS_INFO_STREAM("Sending velocity command:"<<" linear x="<<msg.linear.x<<" linear y=:"<<msg.linear.y<<" angular z="<<msg.angular.z);
+ROS_INFO_STREAM("Sending velocity command:"<<" linear x="<<msg.linear.x<<" linear y=:"<<msg.linear.y<<" angular z="<<msg.angular.z<<" count="<<count);
 
-ros::Duration(1.5).sleep();
+ros::Duration(2).sleep();
 }
 }
