@@ -9,7 +9,7 @@ double pi4=pi1/4; //pi/4
 double pi3_2=3*pi1/2;
 int count=0;
 int total=0;
-int x[]={0, 0, 2, 0, 2, 0, 2, 0, 2};
+double x[]={0, 0, 2, 0, 2, 0, 2, 0, 2};
 double z[]={0, pi2, 0, pi2, 0, pi2, 0, pi2, 0};
 
 //if you give it an angle and a velocity, round curve
@@ -32,7 +32,7 @@ geometry_msgs::Twist msg;
 //msg.angular.z = 2*double(rand())/double(RAND_MAX) - 1;
 
 //msg.linear.x = 0;
-msg.linear.x = x[count];
+msg.linear.x = x[count]/4;
 
 //msg.angular.z = 0.0;
 msg.angular.z = z[count];
