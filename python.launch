@@ -1,0 +1,11 @@
+<!---->
+
+<launch>
+
+<node pkg="position_broadcast" name="broadcast.py" type="broadcast.py" output="screen">
+</node>
+
+<node pkg="pose_listener" name="client.py" type="client.py" output="screen">
+</node>
+
+</launch>
