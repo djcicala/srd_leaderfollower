@@ -26,8 +26,8 @@ class distCalc:
 		self.foll_pose_flag = False
 
 		while not rospy.is_shutdown():
-			rospy.loginfo("checking for new positions...")
-			if self.lead_pose_flag and self.foll_pose_flag:		
+			rospy.loginfo_throttle(1, "checking for new positions...")
+			if self.lead_pose_flag or self.foll_pose_flag:		
 				dist_msg = Float32()	
 				self.dist = ((self.lx-self.fx)**2 + (self.ly-self.fy)**2) ** (0.5)
 				dist_msg.data = self.dist
