@@ -17,7 +17,7 @@ class Markers():
 
     def pose_callback(self, message):
       
-
+        
         x = message.pose.pose.position.x
         y = message.pose.pose.position.y
         z = message.pose.pose.orientation.z
@@ -29,7 +29,7 @@ class Markers():
         self.waypointMarker.header.frame_id = "/map"
         self.waypointMarker.header.stamp    = rospy.get_rostime()
 
-        self.waypointMarker.id = 1
+        self.waypointMarker.id = i
         self.waypointMarker.type = 0 # arrow
         self.waypointMarker.action = 0
         self.waypointMarker.scale.x = .25

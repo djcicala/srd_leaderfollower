@@ -44,10 +44,16 @@ class BC():
             self.xV_str = "{:.6f}".format(xV)
         else:
             self.xV_str = "{:.5f}".format(xV)
+
+        if(self.xV_str.find("-") > -1 and not (xV < -0.005)):
+            self.xV_str = self.xV_str[1:]
         if(zA >= 0):
             self.zA_str = "{:.6f}".format(zA)
         else:
             self.zA_str = "{:.5f}".format(zA)
+
+        if(self.zA_str.find("-") > -1 and not (zA < -0.005)):
+            self.zA_str = self.zA_str[1:]
         if(xV == 0 and zA == 0 and self.first_send == False):
             str_out = (self.x_str + "," + self.y_str + "," + self.z_str + "," + self.w_str + "," + self.xV_str + "," + self.zA_str + ",")
             self.c.send(str_out.encode())
