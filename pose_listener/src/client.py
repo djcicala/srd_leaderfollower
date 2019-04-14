@@ -27,7 +27,10 @@ while True:
 		pose_obj.pose.pose.orientation.z = float(pose_list[2])
 		pose_obj.pose.pose.orientation.w = float(pose_list[3])
 		vel_obj.linear.x = float(pose_list[4])
+		if(pose_list[5].find("'") > -1):
+			pose_list[5] = pose_list[5][:-1]
 		vel_obj.angular.z = float(pose_list[5])
+		time.sleep(0.5)
 		pose_pub.publish(pose_obj)
 		vel_pub.publish(vel_obj)
 	finally:

@@ -78,8 +78,8 @@ class MBC():
 				rospy.loginfo("new goal: x: %f y: %f z: %f w: %f"%(self.current_x, self.current_y, self.current_z, self.current_w))
 			
 			# case where leader is stopped and we're too close to it			
-			elif(self.dist_to_leader < 0.45 and (self.lead_vel_x == 0 and self.lead_vel_z == 0)):
-				self.client.cancel_goal()			
+			elif(self.dist_to_leader < 0.5 and (self.lead_vel_x == 0 and self.lead_vel_z == 0)):
+				self.client.cancel_all_goals()			
 				self.pose_list.queue.clear()
 				rospy.loginfo_throttle(1, "Leader stopped. Idly waiting for new movement...")
 			

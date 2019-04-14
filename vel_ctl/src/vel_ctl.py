@@ -28,7 +28,7 @@ class VC():
 		self.x = self.current_vel.linear.x
 		self.z = self.current_vel.angular.z
 		if(self.current_dist > 0.6 and self.x > 0):
-			self.current_vel.linear.x = 0.11
+			self.current_vel.linear.x = 0.12
 			self.cv_pub.publish(self.current_vel)
 			rospy.loginfo("increasing speed")
 		elif(self.current_dist < 0.4 and self.x > 0):
@@ -40,7 +40,7 @@ class VC():
 			rospy.loginfo("maintaining current speed of x: %f z: %f"%(self.x, self.z))
 
 	def dist_callback(self, dist):
-		self.current_dist = dist.dat
+		self.current_dist = dist.data
 
 
 if( __name__ == "__main__"):

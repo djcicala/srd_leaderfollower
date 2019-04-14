@@ -19,6 +19,9 @@ class distCalc:
 		self.lx = 0
 		self.ly = 0
 		
+		self.distance_sum = 0
+		self.num_distances = 0
+
 		self.fx = -0.5
 		self.fy = 0
 
@@ -26,7 +29,7 @@ class distCalc:
 		self.foll_pose_flag = False
 
 		while not rospy.is_shutdown():
-			rospy.loginfo_throttle(1, "checking for new positions...")
+			rospy.loginfo_throttle(5, "checking for new positions...")
 			if self.lead_pose_flag or self.foll_pose_flag:		
 				dist_msg = Float32()	
 				self.dist = ((self.lx-self.fx)**2 + (self.ly-self.fy)**2) ** (0.5)
@@ -35,6 +38,9 @@ class distCalc:
 				rospy.loginfo("Current distance: %f"%(self.dist))
 				self.lead_pose_flag = False
 				self.foll_pose_flag = False
+				self.distance_sum += self.dist
+				self.num_distances += 1
+				rospy.loginfo("Avg distance: %f"%(self.distance_sum / self.num_distances))
 			self.r.sleep()
 			
 	
