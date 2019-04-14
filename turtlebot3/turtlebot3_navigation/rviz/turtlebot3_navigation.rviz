@@ -11,7 +11,6 @@ Panels:
         - /Local Map1/Costmap1
         - /Local Map1/Planner1
         - /Marker1
-        - /Marker1/Status1
       Splitter Ratio: 0.5
     Tree Height: 241
   - Class: rviz/Selection
@@ -362,7 +361,7 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Scale: 97.834259
+      Scale: 128.455978
       Target Frame: <Fixed Frame>
       Value: TopDownOrtho (rviz)
       X: 0
@@ -384,5 +383,5 @@ Window Geometry:
   Views:
     collapsed: true
   Width: 983
-  X: 810
-  Y: 144
+  X: 879
+  Y: 87
